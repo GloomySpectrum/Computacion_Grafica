@@ -1,139 +1,95 @@
-''' ejercicio 1
 import numpy as np
 
-# Crear un array unidimensional con los números del 1 al 10
-array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+def ejercicio_1():
+    arr = np.array(range(1, 11))
+    reshaped_arr = arr.reshape(2, 5)
+    print("Array original:")
+    print(arr)
+    print("\nArray con forma modificada:")
+    print(reshaped_arr)
+    print("\nPropiedades:")
+    print("Dimensiones:", reshaped_arr.ndim)
+    print("Forma:", reshaped_arr.shape)
+    print("Tamaño:", reshaped_arr.size)
 
-# Imprimir el array
-print("Array unidimensional:")
-print(array)
+def ejercicio_2():
+    a = np.array([1, 2, 3])
+    b = np.array([4, 5, 6])
+    print("Suma:", a + b)
+    print("Resta:", a - b)
+    print("Producto elemento a elemento:", a * b)
+    print("Suma de todos los elementos en a:", np.sum(a))
 
-'''
+def ejercicio_3():
+    data = np.array([10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+    print("Quinto elemento:", data[4])
+    print("Subsección:", data[2:7])
 
-''' ejercicio 2
-import numpy as np
+def ejercicio_4():
+    A = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+    print("A + 10:")
+    print(A + 10)
+    print("Raíz cuadrada de A:")
+    print(np.sqrt(A))
 
-# Crear una matriz 2D con 3 filas y 3 columnas
-matriz = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+def ejercicio_5():
+    M = np.array([[1, 2], [3, 4], [5, 6]])
+    print("Forma original de M:")
+    print(M)
+    print("Forma modificada de M:")
+    print(M.reshape(3, 2))
+    print("Producto punto de M y su transpuesta:")
+    print(np.dot(M, M.T))
 
-# Imprimir la matriz
-print("Matriz 2D:")
-print(matriz)
+def ejercicio_6():
+    data = np.array([1, 2, np.nan, 4, 5])
+    print("Array original con valores faltantes:")
+    print(data)
+    data_filled = np.nan_to_num(data, nan=0)
+    print("Array con valores faltantes reemplazados por 0:")
+    print(data_filled)
+    print("Media del array resultante:")
+    print(np.mean(data_filled))
 
-'''
+def ejercicio_7():
+    data = np.array([1, 2, 3, 4, 5])
+    np.save('mi_array.npy', data)
+    loaded_data = np.load('mi_array.npy')
+    print("Array cargado desde el archivo:")
+    print(loaded_data)
 
-''' ejercicio 3
-import numpy as np
+def main():
+    while True:
+        print("\nMenu:")
+        print("1. Ejercicio 1")
+        print("2. Ejercicio 2")
+        print("3. Ejercicio 3")
+        print("4. Ejercicio 4")
+        print("5. Ejercicio 5")
+        print("6. Ejercicio 6")
+        print("7. Ejercicio 7")
+        print("8. Salir")
+        choice = input("\nSeleccione un ejercicio (1-8): ")
 
-# Crear dos arrays unidimensionales con los números del 1 al 5
-array1 = np.array([1, 2, 3, 4, 5])
-array2 = np.array([1, 2, 3, 4, 5])
+        if choice == '1':
+            ejercicio_1()
+        elif choice == '2':
+            ejercicio_2()
+        elif choice == '3':
+            ejercicio_3()
+        elif choice == '4':
+            ejercicio_4()
+        elif choice == '5':
+            ejercicio_5()
+        elif choice == '6':
+            ejercicio_6()
+        elif choice == '7':
+            ejercicio_7()
+        elif choice == '8':
+            print("Saliendo del programa...")
+            break
+        else:
+            print("Opción no válida. Inténtalo de nuevo.")
 
-# Sumar los dos arrays
-resultado = array1 + array2
-
-# Imprimir el resultado
-print("Resultado de la suma:")
-print(resultado)
-
-'''
-
-''' ejercicio 4
-import numpy as np
-
-# Crear un array con los números del 1 al 5
-array = np.array([1, 2, 3, 4, 5])
-
-# Calcular la exponencial de cada elemento del array
-resultado = np.exp(array)
-
-# Imprimir el nuevo array
-print("Resultado de la exponencial:")
-print(resultado)
-
-'''
-
-''' ejercicio 5
-import numpy as np
-
-# Crear un array con los números del 1 al 10
-array = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-
-# Seleccionar los elementos pares del array
-array_pares = array[array % 2 == 0]
-
-# Imprimir el nuevo array
-print("Elementos pares del array:")
-print(array_pares)
-
-'''
-
-''' ejercicio 6
-import numpy as np
-
-# Generar un array de 10 números aleatorios entre 0 y 1
-array_aleatorio = np.random.rand(10)
-
-# Imprimir el array
-print("Array de números aleatorios entre 0 y 1:")
-print(array_aleatorio)
-
-'''
-
-''' ejercicio 7
-import numpy as np
-
-# Crear un array con los números del 1 al 5
-array = np.array([1, 2, 3, 4, 5])
-
-# Calcular la media de los elementos del array
-media = np.mean(array)
-
-# Imprimir la media
-print("Media de los elementos del array:", media)
-
-'''
-
-''' ejercicio 8
-import numpy as np
-
-# Crear un array de 5 elementos, todos inicializados con el valor 7
-array = np.full(5, 7)
-
-# Imprimir el array
-print("Array de 5 elementos con valor 7:")
-print(array)
-
-'''
-
-''' ejercicio 9
-import numpy as np
-
-# Crear dos arrays
-array1 = np.array([1, 2, 3])
-array2 = np.array([4, 5, 6])
-
-# Sumar los dos arrays utilizando broadcasting
-resultado = array1 + array2
-
-# Imprimir el nuevo array
-print("Resultado de la suma utilizando broadcasting:")
-print(resultado)
-
-'''
-
-''' ejercicio 10
-import numpy as np
-
-# Crear un array con los números del 1 al 6
-array = np.array([1, 2, 3, 4, 5, 6])
-
-# Cambiar la forma del array a una matriz 2x3
-matriz = array.reshape(2, 3)
-
-# Imprimir la matriz
-print("Matriz 2x3:")
-print(matriz)
-
-'''
-
+if __name__ == "__main__":
+    main()
